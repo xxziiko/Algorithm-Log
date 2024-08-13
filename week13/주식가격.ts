@@ -1,25 +1,24 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/42584
 
-// 효율성 통과x..
-
 function solution(prices: number[]) {
-	const result: number[] = [];
+	const len = prices.length;
+	const stack: number[] = [];
+	const result = new Array(len).fill(0);
 
-	function dfs(prices: number[]) {
-		let count = 0;
-		if (!prices.length) return;
-
-		const [first, ...rest] = prices;
-		for (const num of rest) {
-			count++;
-			if (first > num) break;
+	for (const [i, price] of prices.entries()) {
+		while (stack.length && prices[stack.at(-1)] > price) {
+			// 가격 떨어짐
+			// 스택의 인덱스부터 현재 인덱스까지의 기간 계산
+			const index = stack.pop();
+			result[index] = i - index;
 		}
-
-		result.push(count);
-		dfs(rest);
+		stack.push(i);
 	}
 
-	dfs(prices);
+	while (stack.length) {
+		const index = stack.pop();
+		result[index] = len - 1 - index;
+	}
 
 	return result;
 }
