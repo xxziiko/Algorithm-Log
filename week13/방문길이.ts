@@ -4,36 +4,41 @@ function solution(dirs: string) {
 	const direction: { [key: string]: [number, number] } = {
 		U: [1, 0],
 		D: [-1, 0],
-		R: [0, +1],
+		R: [0, 1],
 		L: [0, -1],
 	};
 
-	const queue = [[0, 0]];
+	const visitedPaths = new Set<string>();
 	let distance = 0;
+	let x = 0;
+	let y = 0;
 
 	for (const dir of dirs) {
 		const [dx, dy] = direction[dir];
-
-		const first = queue.shift();
-		if (!first) break;
-
-		const [x, y] = first;
 		const newX = dx + x;
 		const newY = dy + y;
 
-		// 중복됐을때..
-		// ...?
+		if (newX > 5 || newX < -5 || newY > 5 || newY < -5) continue;
 
-		if (newX <= 5 && newX >= -5 && newY >= -5 && newY <= 5) {
-			queue.push([newX, newY]);
+		// 양방향 경로 생성
+		const path1 = `${x},${y}/${newX},${newY}`;
+		const path2 = `${newX},${newY}/${x},${y}`;
+
+		if (!visitedPaths.has(path1) && !visitedPaths.has(path2)) {
 			distance += 1;
+			visitedPaths.add(path1);
+			visitedPaths.add(path2);
 		}
 
-		console.log(queue);
+		x = newX;
+		y = newY;
 	}
+
+	console.log(visitedPaths);
 
 	return distance;
 }
 
-console.log(solution("ULURRDLLU"));
-// console.log(solution("LULLLLLLU"));
+console.log(solution("UD"));
+console.log(solution("ULURRDLLU")); //7
+// console.log(solution("LULLLLLLU")); // 7
