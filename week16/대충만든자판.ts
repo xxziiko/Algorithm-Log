@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/160586
+
 import _ from "lodash";
 
 function solution(keymaps: string[], targets: string[]) {
@@ -5,7 +7,8 @@ function solution(keymaps: string[], targets: string[]) {
 
 	for (const keymap of keymaps) {
 		for (const [i, char] of [...keymap].entries()) {
-			map.set(char, Math.min(map.get(char) ?? Number.POSITIVE_INFINITY, i + 1));
+			if (map.has(char)) map.set(char, Math.min(map.get(char), i + 1));
+			else map.set(char, i + 1);
 		}
 	}
 
