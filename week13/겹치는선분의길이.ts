@@ -16,7 +16,6 @@ function solution(lines: [number, number][]) {
 		}
 	}
 
-	if (!overlaps.length) return 0;
 	overlaps.sort((a, b) => a[0] - b[0]);
 	let totalLength = 0;
 	let [currentStart, currentEnd] = overlaps[0];
