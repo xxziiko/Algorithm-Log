@@ -1,6 +1,6 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/120876
 
-import _, { over } from "lodash";
+import _ from "lodash";
 
 function solution(lines: [number, number][]) {
 	const overlaps = [];
