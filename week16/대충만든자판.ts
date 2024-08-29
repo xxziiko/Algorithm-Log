@@ -7,7 +7,9 @@ function solution(keymaps: string[], targets: string[]) {
 
 	for (const keymap of keymaps) {
 		for (const [i, char] of [...keymap].entries()) {
-			if (map.has(char)) map.set(char, Math.min(map.get(char), i + 1));
+			const getItem = map.get(char);
+
+			if (getItem) map.set(char, Math.min(getItem, i + 1));
 			else map.set(char, i + 1);
 		}
 	}
