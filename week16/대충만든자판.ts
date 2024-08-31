@@ -7,10 +7,10 @@ function solution(keymaps: string[], targets: string[]) {
 
 	for (const keymap of keymaps) {
 		for (const [i, char] of [...keymap].entries()) {
-			const getItem = map.get(char);
+			const charValue = map.get(char);
+			const minValue = charValue ? Math.min(charValue, i + 1) : i + 1;
 
-			if (getItem) map.set(char, Math.min(getItem, i + 1));
-			else map.set(char, i + 1);
+			map.set(char, minValue);
 		}
 	}
 
