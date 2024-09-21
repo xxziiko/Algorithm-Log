@@ -7,7 +7,7 @@
 | 날짜        | 문제 이름           | 유형 |  출처            | 풀이 링크                               |추가 정리|
 |-------------|---------------------|----|-----------------|------------------------------------------|----|
 | 2024-09-07  | 2n 타일링 | dp | [프로그래머스 12900](https://school.programmers.co.kr/learn/courses/30/lessons/12900)  | [풀이 보기](./2n타일링.ts) |-|
-| 2024-09-05  | 숫자변환하기|bfs| [프로그래머스 154538](https://school.programmers.co.kr/learn/courses/30/lessons/154538) | [풀이 보기](./숫자변환하기.ts) |-|
+| 2024-09-05  | 숫자변환하기|bfs| [프로그래머스 154538](https://school.programmers.co.kr/learn/courses/30/lessons/154538) | [풀이 보기](./숫자변환하기.ts) |[BFS 접근방식](https://www.notion.so/xxziiko/BFS-1084ae05ecc780d9b5c9e6eceb960b29?pvs=4)|
 | 2024-09-04  | 택배상자 |스택|[프로그래머스 131704](https://school.programmers.co.kr/learn/courses/30/lessons/131704) | [풀이 보기](./택배상자.ts) |-|
 | 2024-09-12  | 가장 큰 수 |그리디| [프로그래머스 42746](https://school.programmers.co.kr/learn/courses/30/lessons/42746) | [풀이 보기](./가장큰수.ts) |[그리디알고리즘](https://xxziiko.notion.site/663a5d2076b345aa9ae9fae2fd3b7475?pvs=4)|
 | 2024-09-21  | 햄버거 만들기|스택| [프로그래머스 133502](https://school.programmers.co.kr/learn/courses/30/lessons/133502) | [풀이 보기](./햄버거만들기.ts) |-|
