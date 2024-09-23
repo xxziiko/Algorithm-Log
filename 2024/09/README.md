@@ -12,5 +12,6 @@
 | 2024-09-12  | 가장 큰 수 |그리디| [프로그래머스 42746](https://school.programmers.co.kr/learn/courses/30/lessons/42746) | [풀이 보기](./가장큰수.ts) |[그리디알고리즘](https://velog.io/@xxziiko/%EA%B7%B8%EB%A6%AC%EB%94%94%ED%83%90%EC%9A%95-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)|
 | 2024-09-21  | 햄버거 만들기|스택| [프로그래머스 133502](https://school.programmers.co.kr/learn/courses/30/lessons/133502) | [풀이 보기](./햄버거만들기.ts) |-|
 | 2024-09-22  | 스택 |스택| [백준 10828](https://www.acmicpc.net/problem/10828) | [풀이 보기](./스택.ts) |-|
+| 2024-09-23  | 바탕화면 정리 |탐색| [프로그래머스 161990](https://school.programmers.co.kr/learn/courses/30/lessons/161990) | [풀이 보기](./바탕화면정리.ts) |[문제 분석](https://xxziiko.notion.site/2f66267cbb504341a8e4d331bc9577a8?pvs=4)|
 
  
