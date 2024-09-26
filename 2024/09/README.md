@@ -14,6 +14,7 @@
 | 2024-09-22  | 스택 |스택| [백준 10828](https://www.acmicpc.net/problem/10828) | [풀이 보기](./스택.ts) |-|
 | 2024-09-23  | 바탕화면 정리 |탐색| [프로그래머스 161990](https://school.programmers.co.kr/learn/courses/30/lessons/161990) | [풀이 보기](./바탕화면정리.ts) |[문제 분석](https://xxziiko.notion.site/2f66267cbb504341a8e4d331bc9577a8?pvs=4)|
 | 2024-09-24  | 단어 뒤집기 |문자열| [백준 9093](https://www.acmicpc.net/problem/9093) | [풀이 보기](./단어뒤집기.ts) |-|
-| 2024-09-25  | 소수 찾기 |순열| [프로그래머스 42839](https://school.programmers.co.kr/learn/courses/30/lessons/42839) | [풀이 보기](./소수찾기.ts) |[풀이 보기](https://www.notion.so/xxziiko/10c4ae05ecc7808faddbc06f9b35dfa5?pvs=4)|
+| 2024-09-25  | 소수 찾기 |순열| [프로그래머스 42839](https://school.programmers.co.kr/learn/courses/30/lessons/42839) | [풀이 보기](./소수찾기.ts) |[문제 분석](https://www.notion.so/xxziiko/10c4ae05ecc7808faddbc06f9b35dfa5?pvs=4)|
+| 2024-09-26  | 괄호 |문자열| [백준 9012](https://www.acmicpc.net/problem/9012) | [풀이 보기](./괄호.ts) |-|
 
  
