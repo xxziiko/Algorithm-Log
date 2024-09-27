@@ -16,5 +16,6 @@
 | 2024-09-24  | 단어 뒤집기 |문자열| [백준 9093](https://www.acmicpc.net/problem/9093) | [풀이 보기](./단어뒤집기.ts) |-|
 | 2024-09-25  | 소수 찾기 |순열| [프로그래머스 42839](https://school.programmers.co.kr/learn/courses/30/lessons/42839) | [풀이 보기](./소수찾기.ts) |[문제 분석](https://www.notion.so/xxziiko/10c4ae05ecc7808faddbc06f9b35dfa5?pvs=4)|
 | 2024-09-26  | 괄호 |문자열| [백준 9012](https://www.acmicpc.net/problem/9012) | [풀이 보기](./괄호.ts) |-|
+| 2024-09-27  | 스택 수열 |스택| [백준 1874](https://www.acmicpc.net/problem/1874) | [풀이 보기](./스택수열.ts) |-|
 
  
