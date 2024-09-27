@@ -1,0 +1,36 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: |
+          npm install
+
+      - name: Run Update Script
+        run: |
+          node update-readme.js
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'xxziiko'
+          git config --global user.email 'xxziiko@gmail.com'
+          git add README.md
+          git commit -m "docs: update README with BaekjoonHub updates"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
