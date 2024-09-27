@@ -23,7 +23,7 @@ jobs:
 
       - name: Run Update Script
         run: |
-          node .github/script/update-readme.js
+          node .github/scripts/update-readme.js
 
       - name: Commit changes
         run: |
