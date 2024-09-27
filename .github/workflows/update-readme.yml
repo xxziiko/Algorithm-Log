@@ -29,7 +29,7 @@ jobs:
         run: |
           git config --global user.name 'xxziiko'
           git config --global user.email 'xxziiko@gmail.com'
-          git add README.md
+          git add 백준/README.md
           git commit -m "docs: update README with BaekjoonHub updates"
           git push
         env:
