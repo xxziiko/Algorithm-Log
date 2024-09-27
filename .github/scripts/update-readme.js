@@ -1,38 +1,63 @@
 const fs = require('fs');
 const path = require('path');
+const { parse } = require('url');
 
-// 파일 경로 설정
-const readmePath = path.join(__dirname, '../../백준/README.md');
-const baekjoonPath = path.join(__dirname, '../../백준');
-let readmeContent = fs.readFileSync(readmePath, 'utf8');
+const HEADER = ''; // Define any header content you want
 
-let tableStartIndex = readmeContent.indexOf(
-  '| 문제 번호 | 문제 이름 | 문제 링크 |',
-);
-let newContent = '';
+function updateReadme() {
+  let content = '';
+  content += HEADER;
 
-if (tableStartIndex !== -1) {
-  newContent += '\n';
-} else {
-  newContent += '\n\n## 업데이트된 문제\n';
-  newContent += '| 문제 번호 | 문제 이름 | 문제 링크 |\n';
-  newContent += '| -------- | ---------- | --------- |\n';
+  const directories = [];
+  const solveds = [];
+
+  const walkSync = (dir, filelist = []) => {
+    const files = fs.readdirSync(dir);
+    files.forEach((file) => {
+      const filePath = path.join(dir, file);
+      if (fs.statSync(filePath).isDirectory()) {
+        filelist = walkSync(filePath, filelist);
+      } else {
+        filelist.push({ file, root: dir });
+      }
+    });
+    return filelist;
+  };
+
+  const filesList = walkSync('.');
+
+  filesList.forEach(({ file, root }) => {
+    const category = path.basename(root);
+
+    if (category === '.' || category === 'images') return;
+
+    const directory = path.basename(path.dirname(root));
+
+    if (directory === '.') return;
+
+    if (!directories.includes(directory)) {
+      if (['백준'].includes(directory)) {
+        content += `## 📚 ${directory}\n`;
+      } else {
+        content += `### 🚀 ${directory}\n`;
+        content += '| 문제번호 | 링크 |\n';
+        content += '| ----- | ----- |\n';
+      }
+      directories.push(directory);
+    }
+
+    if (!solveds.includes(category)) {
+      const problemLink = parse(path.join(root, file)).pathname;
+      content += `|${category}|[링크](${problemLink})|\n`;
+      solveds.push(category);
+      console.log('category : ' + category);
+    }
+  });
+
+  // Write the updated content to README.md
+  const readmePath = path.join(__dirname, '../../백준/README.md');
+  fs.writeFileSync(readmePath, content, 'utf8');
+  console.log('README updated successfully!');
 }
 
-fs.readdirSync(baekjoonPath).forEach((file) => {
-  if (file.endsWith('.md')) {
-    const problemNumber = file.replace('.md', '');
-    const problemName = problemNumber;
-    const problemLink = `./${file}`;
-    const row = `| ${problemNumber} | ${problemName} | [링크](${problemLink}) |\n`;
-
-    if (!readmeContent.includes(row)) {
-      newContent += row;
-    }
-  }
-});
-
-// README 파일에 새로운 내용 추가
-const updatedReadmeContent = `${readmeContent}${newContent}`;
-fs.writeFileSync(readmePath, updatedReadmeContent, 'utf8');
-console.log('README updated successfully!');
+updateReadme();
