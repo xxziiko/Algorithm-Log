@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '백준/README.md'
+      - '프로그래머스/README.md'
+      - 'README.md'
 
 jobs:
   update-readme:
