@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const readmePath = path.join(__dirname, '../../README.md');
-const baekjoonPath = path.join(__dirname, 'BaekjoonHub');
+const readmePath = path.join(__dirname, '../../백준/README.md');
+const baekjoonPath = path.join(__dirname, '../../백준');
 let readmeContent = fs.readFileSync(readmePath, 'utf8');
 
 let newContent = '\n\n## 업데이트된 문제\n';
