@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const { parse } = require('url');
 
 const HEADER = ''; // Define any header content you want
 
@@ -24,7 +23,8 @@ function updateReadme() {
     return filelist;
   };
 
-  const filesList = walkSync(path.resolve(__dirname, '../../백준'));
+  // 상대 경로로 변경
+  const filesList = walkSync(path.join('백준'));
 
   filesList.forEach(({ file, root }) => {
     const category = path.basename(root); // 문제 카테고리 (Silver, Gold 등)
@@ -43,14 +43,15 @@ function updateReadme() {
     }
 
     if (!solveds.includes(category)) {
-      const problemLink = encodeURI(path.join(root, file)); // 공백 및 특수 문자 처리
+      const problemLink = `./${path.join('./', directory, category)}`; // 상대 경로로 수정
+
       const [num, problem] = category.split('.');
       content += `|${num} | ${problem} | [링크](${problemLink})|\n`;
       solveds.push(category);
     }
   });
 
-  const readmePath = path.resolve(__dirname, '../../백준/README.md');
+  const readmePath = path.join('백준', 'README.md');
   fs.writeFileSync(readmePath, content, 'utf8');
   console.log('README updated successfully!');
 }
