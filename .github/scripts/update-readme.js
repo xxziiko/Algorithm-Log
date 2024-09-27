@@ -13,7 +13,7 @@ fs.readdirSync(baekjoonPath).forEach((file) => {
   if (file.endsWith('.md')) {
     const problemNumber = file.replace('.md', '');
     const problemName = problemNumber;
-    const problemLink = `./BaekjoonHub/${file}`;
+    const problemLink = `./${file}`;
     newContent += `| ${problemNumber} | ${problemName} | [링크](${problemLink}) |\n`;
   }
 });
