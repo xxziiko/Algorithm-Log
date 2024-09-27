@@ -24,7 +24,7 @@ function updateReadme() {
     return filelist;
   };
 
-  const filesList = walkSync('.');
+  const filesList = walkSync(path.join(__dirname, '../../백준'));
 
   filesList.forEach(({ file, root }) => {
     const category = path.basename(root);
@@ -54,7 +54,7 @@ function updateReadme() {
     }
   });
 
-  // Write the updated content to README.md
+  // Write the updated content to 백준/README.md
   const readmePath = path.join(__dirname, '../../백준/README.md');
   fs.writeFileSync(readmePath, content, 'utf8');
   console.log('README updated successfully!');
