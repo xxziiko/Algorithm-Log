@@ -6,7 +6,7 @@ const HEADER = ''; // Define any header content you want
 
 function updateReadme() {
   let content = '';
-  content += HEADER;
+  content += '## 백준\n'; // '백준' 섹션 고정
 
   const directories = [];
   const solveds = [];
@@ -24,38 +24,33 @@ function updateReadme() {
     return filelist;
   };
 
-  const filesList = walkSync(path.join(__dirname, '../../백준'));
+  const filesList = walkSync(path.resolve(__dirname, '../../백준'));
 
   filesList.forEach(({ file, root }) => {
-    const category = path.basename(root);
+    const category = path.basename(root); // 문제 카테고리 (Silver, Gold 등)
 
-    if (category === '.' || category === 'images') return;
+    // 불필요한 상위 디렉토리 제거
+    if (category === '.' || category === 'images' || category === '백준')
+      return;
 
-    const directory = path.basename(path.dirname(root));
-
-    if (directory === '.') return;
+    const directory = path.basename(path.dirname(root)); // 상위 디렉토리 (Silver, Gold 등)
 
     if (!directories.includes(directory)) {
-      if (['백준'].includes(directory)) {
-        content += `## 📚 ${directory}\n`;
-      } else {
-        content += `### 🚀 ${directory}\n`;
-        content += '| 문제번호 | 링크 |\n';
-        content += '| ----- | ----- |\n';
-      }
+      content += `### 🪄 ${directory}\n`;
+      content += '| 문제번호 | 문제 | 링크 |\n';
+      content += '| ----- | --- | ----- |\n';
       directories.push(directory);
     }
 
     if (!solveds.includes(category)) {
-      const problemLink = parse(path.join(root, file)).pathname;
-      content += `|${category}|[링크](${problemLink})|\n`;
+      const problemLink = encodeURI(path.join(root, file)); // 공백 및 특수 문자 처리
+      const [num, problem] = category.split('.');
+      content += `|${num} | ${problem} | [링크](${problemLink})|\n`;
       solveds.push(category);
-      console.log('category : ' + category);
     }
   });
 
-  // Write the updated content to 백준/README.md
-  const readmePath = path.join(__dirname, '../../백준/README.md');
+  const readmePath = path.resolve(__dirname, '../../백준/README.md');
   fs.writeFileSync(readmePath, content, 'utf8');
   console.log('README updated successfully!');
 }
