@@ -1,0 +1,21 @@
+{
+  "name": "ts-snippets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "^1.6.3",
+    "@types/lodash": "^4.17.4",
+    "@types/node": "^22.5.4",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
