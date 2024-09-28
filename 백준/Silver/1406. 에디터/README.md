@@ -1,6 +1,8 @@
 # [Silver II] 에디터 - 1406 
 
 [문제 링크](https://www.acmicpc.net/problem/1406) 
+<br/>
+[풀이 분석](https://xxziiko.notion.site/1406-10f4ae05ecc78081947dcba2e101abdf?pvs=4)
 
 ### 성능 요약
 
