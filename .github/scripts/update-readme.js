@@ -5,7 +5,7 @@ const HEADER = ''; // Define any header content you want
 
 function updateReadme() {
   let content = '';
-  content += '## 백준\n'; // '백준' 섹션 고정
+  content += '## 문제 목록\n'; // '백준' 섹션 고정
 
   const directories = [];
   const solveds = [];
@@ -46,7 +46,7 @@ function updateReadme() {
       const problemLink = `./${path.join('./', directory, category)}`; // 상대 경로로 수정
 
       const [num, problem] = category.split('.');
-      content += `|${num} | ${problem} | [링크](${problemLink})|\n`;
+      content += `|${num} | ${problem} | [풀이 보기](${problemLink})|\n`;
       solveds.push(category);
     }
   });
