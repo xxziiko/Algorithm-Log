@@ -20,3 +20,16 @@
 | ------------ | -------------------------- |
 | 백준         | [바로가기](./백준)         |
 | 프로그래머스 | [바로가기](./프로그래머스) |
+
+  <br/>
+
+
+
+## 추가 기록
+|링크 |
+|----|
+|[큐(queue)의 시간 복잡도](https://xxziiko.notion.site/queue-1124ae05ecc7805186ced40d05f82944?pvs=4)|
+|[소수찾기(순열)](https://www.notion.so/xxziiko/10c4ae05ecc7808faddbc06f9b35dfa5?pvs=4)|
+|[바탕화면 정리](https://xxziiko.notion.site/2f66267cbb504341a8e4d331bc9577a8?pvs=4)|
+|[에디터](https://xxziiko.notion.site/1406-10f4ae05ecc78081947dcba2e101abdf?pvs=4)|
+|[BFS 접근방식](https://xxziiko.notion.site/BFS-1084ae05ecc780d9b5c9e6eceb960b29?pvs=4)|
