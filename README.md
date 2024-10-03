@@ -28,6 +28,7 @@
 ## 추가 기록
 |링크 |
 |----|
+|[수 찾기](https://xxziiko.notion.site/1920-1144ae05ecc78053ad91c13b0382fdd8?pvs=4)|
 |[큐(queue)의 시간 복잡도](https://xxziiko.notion.site/queue-1124ae05ecc7805186ced40d05f82944?pvs=4)|
 |[소수찾기(순열)](https://www.notion.so/xxziiko/10c4ae05ecc7808faddbc06f9b35dfa5?pvs=4)|
 |[바탕화면 정리](https://xxziiko.notion.site/2f66267cbb504341a8e4d331bc9577a8?pvs=4)|
