@@ -32,6 +32,7 @@
 
 |링크 |
 |----|
+|[파스칼의 삼각형(조합)](https://xxziiko.notion.site/1194ae05ecc780e89aa5fb3e605545df?pvs=4)|
 |[설탕 배달(dp 분석)](https://xxziiko.notion.site/2839-dp-1184ae05ecc780c798ccf048260ee6a7?pvs=4)|
 |[수 찾기](https://xxziiko.notion.site/1920-1144ae05ecc78053ad91c13b0382fdd8?pvs=4)|
 |[큐(queue)의 시간 복잡도](https://xxziiko.notion.site/queue-1124ae05ecc7805186ced40d05f82944?pvs=4)|
