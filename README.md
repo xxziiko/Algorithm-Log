@@ -32,6 +32,7 @@
 
 |링크 |
 |----|
+|[2n 타일링 분석](https://xxziiko.notion.site/dp-2n-13c4ae05ecc780a48f76d1381e56fdc8?pvs=4)
 |[동적 계획법(DP)에서 반복문과 재귀 함수의 차이](https://xxziiko.notion.site/1463-1-dp-11a4ae05ecc780a0aa42d5163a5d1002?pvs=4)|
 |[파스칼의 삼각형(조합)](https://xxziiko.notion.site/1194ae05ecc780e89aa5fb3e605545df?pvs=4)|
 |[설탕 배달(dp 분석)](https://xxziiko.notion.site/2839-dp-1184ae05ecc780c798ccf048260ee6a7?pvs=4)|
