@@ -32,6 +32,7 @@
 
 |링크 |
 |----|
+|[[dp] 쉬운 계단 수](https://xxziiko.notion.site/dp-14e4ae05ecc780c7b301c0379d0081c5)|
 |[[dp] 카드 구매하기](https://xxziiko.notion.site/dp-14b4ae05ecc7805e9cf1f782146c91ee?pvs=4)|
 |[[dp] 1로 만들기(복습)](https://xxziiko.notion.site/dp-1-14b4ae05ecc78074880ced8effad9749?pvs=4)|
 |[2n 타일링 분석](https://xxziiko.notion.site/dp-2n-13c4ae05ecc780a48f76d1381e56fdc8?pvs=4)
