@@ -32,6 +32,7 @@
 
 |링크 |
 |----|
+|[[bfs] 단지번호 붙이기](https://xxziiko.notion.site/BFS-2667-1654ae05ecc7809e8858ff55f1792e0f?pvs=4)|
 |[[dp] 쉬운 계단 수](https://xxziiko.notion.site/dp-14e4ae05ecc780c7b301c0379d0081c5)|
 |[[dp] 카드 구매하기](https://xxziiko.notion.site/dp-14b4ae05ecc7805e9cf1f782146c91ee?pvs=4)|
 |[[dp] 1로 만들기(복습)](https://xxziiko.notion.site/dp-1-14b4ae05ecc78074880ced8effad9749?pvs=4)|
