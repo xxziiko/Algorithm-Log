@@ -14,29 +14,43 @@ const run = (inputs) => {
 		graph[to].push(from);
 	}
 
-	const dfs = (startNode) => {
-		const stack  = [];
-		const visited = Array(n + 1).fill(false);
+	const visited = Array(n + 1).fill(false);
+	const dfs = (node) => {
 		let count = 0;
+		visited[node] = true;
 
-		stack.push(startNode);
-		visited[startNode] = true;
-
-		while (stack.length > 0) {
-			const node = stack.pop();
-
-			for (const next of graph[node]) {
-				if (!visited[next] && graph[next]) {
-					visited[next] = true;
-					stack.push(next);
-					count++;
-				}
+		for (const next of graph[node]) {
+			if (!visited[next]) {
+				count += dfs(next) + 1;
 			}
 		}
 
 		return count;
 	};
 
+	// 	const dfs = (startNode) => {
+	// 	const stack  = [];
+	// 	const visited = Array(n + 1).fill(false);
+	// 	let count = 0;
+
+	// 	stack.push(startNode);
+	// 	visited[startNode] = true;
+
+	// 	while (stack.length > 0) {
+	// 		const node = stack.pop();
+
+	// 		for (const next of graph[node]) {
+	// 			if (!visited[next] && graph[next]) {
+	// 				visited[next] = true;
+	// 				stack.push(next);
+	// 				count++;
+	// 			}
+	// 		}
+	// 	}
+
+	// 	return count;
+	// };
+    
 	return dfs(x);
 };
 
