@@ -3,18 +3,16 @@ const input = fs.readFileSync('/dev/stdin').toString().trim()
 
 const run = (inputs) => {
   const number = Number(inputs);
-  const dp0 = new Array(number + 1).fill(0);
-  const dp1 = new Array(number + 1).fill(0);
+  const dp = new Array(number + 1).fill(0n);
     
-  dp0[0] = 0
-  dp1[1] = 1;
+  dp[1] = 1n;
+  dp[2] = 1n;
     
-  for (let i = 2; i <= number; i++) {
-    dp1[i] = BigInt(dp0[i - 1]);
-    dp0[i] = BigInt(dp1[i - 1] + dp0[i - 1]);
+  for (let i = 3; i <= number; i++) {
+    dp[i] = dp[i-1] + dp[i-2];
   }
 
-  return BigInt(dp0[number] + dp1[number]).toString();
+  return dp[number].toString()
 };
 
 console.log(run(input));
