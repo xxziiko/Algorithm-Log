@@ -2,16 +2,16 @@ const fs = require("fs");
 const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
 function run() {
-	const [N, S, P] = input[0].split(" ").map(Number);
+	const [first, ...rest] = input;
+	const [N, S, P] = first.split(" ").map(Number);
 	const graph = Array.from({ length: N + 1 }, () => []);
 
-	for (let i = 1; i < input.length; i++) {
-		const [from, to] = input[i].split(" ").map(Number);
+	for (const numbers of rest) {
+		const [from, to] = numbers.split(" ").map(Number);
 
 		graph[from].push(to);
 		graph[to].push(from);
 	}
-
 
 	// 필수 노드 계산(펭귄 노드에서 최소 2개의 지지대까지의 최소거리?)
 	const bfs = (startNode, graph) => {
@@ -40,10 +40,10 @@ function run() {
 		return 0;
 	};
 
-	// 지지대 + 경로
+	// 지지대 + 경로 + 펭귄 노드
 	const minNodes = bfs(P, graph);
 
-	// 전체 노드 수 - 필수 노드 - 펭귄노드
+	// 전체 노드 수 - 필수 노드
 	return N - minNodes;
 }
 
