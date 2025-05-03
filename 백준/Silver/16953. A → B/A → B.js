@@ -1,35 +1,30 @@
-const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().trim().split(' ').map(Number)
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
-const run = (inputs) => {
-  const [a, b] = inputs;
+function run(input) {
+	const [a, b] = input[0].split(" ").map(Number);
+	let target = b;
+	let count = 1;
 
-  const bfs = (startNumber, targetNumber) => {
-    const queue = [];
+	while (target > 0) {
+		if (target === a) return count;
 
-    queue.push([startNumber, 1]);
+		if (target % 2 === 0) {
+			target /= 2;
+			count += 1;
+			continue;
+		}
 
-    while (queue.length > 0) {
-      const [current, count] = queue.shift();
+		if (target % 10 === 1) {
+			target = Math.floor(target / 10);
+			count += 1;
+			continue;
+		}
 
-      if (current === targetNumber) return count;
+		break;
+	}
 
-      const cul1 = current * 2;
-      const cul2 = current * 10 + 1;
-
-      if (cul1 <= targetNumber) {
-        queue.push([cul1, count + 1]);
-      }
-
-      if (cul2 <= targetNumber) {
-        queue.push([cul2, count + 1]);
-      }
-    }
-
-    return -1;
-  };
-
-  return bfs(a, b);
-};
+	return -1;
+}
 
 console.log(run(input));
