@@ -1,37 +1,46 @@
-const input = require("fs")
-	.readFileSync("/dev/stdin")
-	.toString()
-	.trim()
-	.split("\n");
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
-const [n, m] = input.shift().split(" ");
-const graph = input.map((row) => row.split("").map((x) => +x));
-
-function bfs(n, m, arr) {
-	const dx = [-1, 0, 1, 0];
-	const dy = [0, 1, 0, -1];
+function run(input) {
+	const [n, m] = input[0].split(" ").map(Number);
+	const lines = input.slice(1).map((line) => line.split("").map(Number));
+	const directions = [
+		[0, -1],
+		[-1, 0],
+		[1, 0],
+		[0, 1],
+	];
 
 	const queue = [];
-	queue.push({ x: 0, y: 0 });
+	const distance = Array.from({ length: n }, () => Array(m).fill(0));
+	const visited = Array.from({ length: n }, () => Array(m).fill(false));
+	queue.push([0, 0]);
+	distance[0][0] = 1;
+	visited[0][0] = true;
 
-	while (queue.length !== 0) {
-		const target = queue.shift();
-		for (i = 0; i < 4; i++) {
-			const nextX = target.x + dx[i];
-			const nextY = target.y + dy[i];
+	while (queue.length > 0) {
+		const [cx, cy] = queue.shift();
 
-			if (nextX < 0 || nextX >= n || nextY < 0 || nextY >= m) continue;
+		for (const [dx, dy] of directions) {
+			const nx = cx + dx;
+			const ny = cy + dy;
 
-			if (arr[nextX][nextY] !== 1) continue;
-
-			arr[nextX][nextY] = arr[target.x][target.y] + 1;
-			queue.push({ x: nextX, y: nextY });
+			if (
+				nx >= 0 &&
+				ny >= 0 &&
+				nx < n &&
+				ny < m &&
+				lines[nx][ny] &&
+				!visited[nx][ny]
+			) {
+				visited[nx][ny] = true;
+				distance[nx][ny] = distance[cx][cy] + 1;
+				queue.push([nx, ny]);
+			}
 		}
-
 	}
 
-	return arr[n - 1][m - 1];
+	return distance[n - 1][m - 1];
 }
 
-const answer = bfs(n, m, graph);
-console.log(answer);
+console.log(run(input));
