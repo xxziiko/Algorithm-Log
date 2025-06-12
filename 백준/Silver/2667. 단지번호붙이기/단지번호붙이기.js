@@ -1,62 +1,58 @@
-const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n')
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
-const run = (inputs) => {
-  const [n, ...rest] = inputs;
-  const numNodes = Number(n);
-  const graph = rest.map((line) => line.split('').map(Number));
-  const visited = Array.from({ length: numNodes }, () =>
-    Array(numNodes).fill(false),
-  );
+function run(input) {
+	const n = Number(input[0]);
+	const lines = input.slice(1)
+	const directions = [
+		[0, -1],
+		[-1, 0],
+		[1, 0],
+		[0, 1],
+	];
 
-  const directions = [
-    [-1, 0],
-    [1, 0],
-    [0, -1],
-    [0, 1],
-  ];
+	const visited = Array.from({ length: n }, () => Array(n).fill(false));
+    
+	const bfs = (x, y) => {
+		const queue = [];
+		let count = 1;
 
-  const bfs = (x, y) => {
-    const queue = [[x, y]];
+		queue.push([x, y]);
+		visited[x][y] = true;
 
-    visited[x][y] = true;
-    let count = 0;
+		while (queue.length > 0) {
+			const [cx, cy] = queue.shift();
 
-    while (queue.length !== 0) {
-      const [cx, cy] = queue.shift();
-      count++;
+			for (const [dx, dy] of directions) {
+				const nx = cx + dx;
+				const ny = cy + dy;
 
-      for (const [dx, dy] of directions) {
-        const nx = cx + dx;
-        const ny = cy + dy;
+				if (
+					nx >= 0 &&
+					ny >= 0 &&
+					nx < n &&
+					ny < n &&
+					!visited[nx][ny] &&
+					lines[nx][ny] === "1"
+				) {
+					visited[nx][ny] = true;
+					queue.push([nx, ny]);
+					count++;
+				}
+			}
+		}
+		return count;
+	};
 
-        if (
-          nx >= 0 &&
-          nx < numNodes &&
-          ny >= 0 &&
-          ny < numNodes &&
-          graph[nx][ny] === 1 &&
-          !visited[nx][ny]
-        ) {
-          visited[nx][ny] = true;
-          queue.push([nx, ny]);
-        }
-      }
-    }
+	const results = [];
+	for (let x = 0; x < n; x++) {
+		for (let y = 0; y < n; y++)
+			if (!visited[x][y] && lines[x][y] === "1") {
+				results.push(bfs(x, y));
+			}
+	}
 
-    return count;
-  };
-  const complexSize = [];
-  for (const [i, node] of graph.entries()) {
-    for (let j = 0; j < numNodes; j++) {
-      if (node[j] === 1 && !visited[i][j]) {
-        const size = bfs(i, j);
-        complexSize.push(size);
-      }
-    }
-  }
-
-  return [complexSize.length, ...complexSize.sort((a, b) => a - b)].join('\n');
-};
+	return [results.length, ...results.sort((a, b) => a - b)].join("\n");
+}
 
 console.log(run(input));
