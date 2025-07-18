@@ -2,7 +2,7 @@ function solution(n, computers) {
     var answer = 0;
     const visited = Array(n).fill(false)
 
-    const bfs = (x) => { 
+    const dfs = (x) => { 
         const stack = []
         
         stack.push(x)
@@ -27,7 +27,7 @@ function solution(n, computers) {
     
 
         for(let x = 0; x < n; x++){
-            if(!visited[x] && bfs(x, visited)) answer +=1
+            if(!visited[x] && dfs(x, visited)) answer +=1
         }
     return answer;
 }
