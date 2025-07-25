@@ -10,19 +10,21 @@ function solution(n, costs) {
 
     const find = (x) => {
         if(parent[x] !== x) {
-            parent[x] = find(parent[x]) // 경로 압축
+            parent[x] = find(parent[x])
         }
         
         return parent[x]
     }
     
-    
     const union = (x, y) => {
-        const px = find(x)
-        const py = find(y)
+        const px = parent[x]
+        const py = parent[y]
         
         if(px !== py) parent[px] = py
     }
+    
+    
+    
     
     
     for(const [start, end, cost] of costs) {
