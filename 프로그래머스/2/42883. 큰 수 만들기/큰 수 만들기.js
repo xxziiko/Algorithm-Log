@@ -17,7 +17,6 @@ function solution(number, k) {
     }   
     
     if(count > 0) {
-        console.log(count)
         return stack.slice(0, -count).join('')
     }
     
