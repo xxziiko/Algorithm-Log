@@ -1,24 +1,25 @@
 function solution(number, k) {
-    var answer = []
-    let remainder = k
-
-    // 어떤 숫자에서 k개를 제거했을때 만들 수 있는 가장 큰 수
-    // "어떤 수를 남길까"
-    
+    // 제일 작은 수를 k개 만큼 앞에서 부터 제거?
+    /// 33322211
+    const stack = []
+    let count = k
     
     for(const num of number){
-
-        while(answer.length > 0 && remainder > 0 && Number(num) > answer.at(-1)) {
-                answer.pop()
-                remainder --
-            }  
-
-        answer.push(Number(num))
+        while(count > 0 && stack.at(-1) < num) {
+            stack.pop()
+            count --                            
+        }
         
+
+        
+        stack.push(Number(num))    
+        
+    }   
+    
+    if(count > 0) {
+        console.log(count)
+        return stack.slice(0, -count).join('')
     }
     
-    
-    if(remainder > 0) answer.splice(answer.length - remainder, remainder);
-
-    return answer.join('')
+    return stack.join('')
 }
