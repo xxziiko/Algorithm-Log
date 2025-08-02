@@ -69,7 +69,5 @@ function solution(maps) {
     const distanceB = bfs(lever, exit)
     
     return distanceA === -1 || distanceB === -1? -1 : distanceA + distanceB
-    
-    // 미로를 빠져나가는데 걸리는 최소한의 시간, 탈출할 수 없다면 -1
-    return answer;
+
 }
