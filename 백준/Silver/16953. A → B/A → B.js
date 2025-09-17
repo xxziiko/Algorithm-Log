@@ -1,30 +1,29 @@
 const fs = require("fs");
-const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
+const input = fs.readFileSync("/dev/stdin").toString().trim()
 
 function run(input) {
-	const [a, b] = input[0].split(" ").map(Number);
-	let target = b;
-	let count = 1;
+	const [A, B] = input.split(" ").map(Number)
+	let result = 1
+	let current  = B
+	
 
-	while (target > 0) {
-		if (target === a) return count;
-
-		if (target % 2 === 0) {
-			target /= 2;
-			count += 1;
-			continue;
+	
+	while(current > A) {
+		
+		if(current % 2 === 0) {
+			current = Math.floor(current / 2)	
+		} 
+		else if(current % 10 === 1) {
+			current = Math.floor(current / 10)	
+		} else {
+			return -1
 		}
-
-		if (target % 10 === 1) {
-			target = Math.floor(target / 10);
-			count += 1;
-			continue;
-		}
-
-		break;
+		
+		result +=1
 	}
-
-	return -1;
+	
+	
+	return current === A  ? result : -1
 }
 
 console.log(run(input));
